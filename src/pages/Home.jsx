@@ -10,7 +10,7 @@ const Home = () => {
     const handleFileChange = (e) => {
         setFile(e.target.files[0]);
         setStatus('');
-        setDownloadUrl(''); // Nayi file select karne par purana link hata dein
+        setDownloadUrl(''); 
     };
 
     const handleUpload = async () => {
@@ -27,7 +27,7 @@ const Home = () => {
             setDownloadUrl(''); 
             setStatus('Scraping started... our bots are visiting domains. It might take a few minutes.');
             
-            const response = await axios.post('http://localhost:3000/api/upload', formData);
+            const response = await axios.post('https://email-scraper-backend-2dj9.onrender.com/api/upload', formData);
             
             if (response.data && response.data.success) {
                 setDownloadUrl(response.data.downloadUrl); // URL ko state mein set karein
